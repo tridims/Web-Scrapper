@@ -29,16 +29,24 @@ for title in titles:
     print(title_.text)
     
 print("Apakah anda melanjutkan memilih manga spesifik? Jika tidak maka keluar")
-go_in = input(bool)
+go_in = input(str)
+if go_in == "yes" or go_in == "y" or go_in == "Yes" or go_in == "Y":
+    go_in = True
+elif go_in == "No" or go_in == "N" or go_in == "n" or go_in == "no":
+    go_in = False
+else:
+    driver.quit()
+    
 if go_in == True:
     print("Pilih manga yang ada di list! #case sensitive")
     input_user = input(str)
     link = driver.find_element_by_link_text(input_user)
     link.click()
 
+elif go_in == False:
+    driver.quit()
 else:
     driver.quit()
-    
 
 
 
